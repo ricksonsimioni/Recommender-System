@@ -1,0 +1,13 @@
+category,distance,duration,nearby_places,title,p_rating,itemId
+ Wildlife,6 Kms,1-2 Hours,None,Il Lago di Barrea,2.2,1
+ Heritage,6 Kms,1-2 Hours,None,La riserva naturale della Camosciara,4.6,2
+ Pilgrimage,6 Kms,1-2 Hours,None,La Val Fondillo,4.9,3
+ Heritage,6 Kms,30 Mins,None,Il borgo di Barrea,4.2,4
+ Heritage,9 Kms,30 Mins,None,Civitella Alfedena,1.9,5
+ Pilgrimage,6 Kms,30 Mins,None,Pescasseroli,4.5,6
+ Park,11 Kms,1 Hour,None,Ranch Brionna,2,7
+ Pilgrimage,6.5 Kms,1-2 Hours,None,Lago di Scanno,5,8
+ Heritage,14 Kms,30 Mins,None,Il borgo di Scanno,4.8,9
+ Pilgrimage,11 Kms,1-2 Hours,None,Pescocostanzo,3.5,10
+" Heritage, Museum",6 Kms,1-2 Hours,None,Roccaraso,4,11
+ Pilgrimage,7 Kms,30 Mins,None,Rivisondoli,1.5,12
