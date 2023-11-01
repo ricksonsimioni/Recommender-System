@@ -26,6 +26,7 @@ userItemRatingMatrix=pd.pivot_table(data, values='rating',
 ##feature that comes from the configuration
 #can be improved
 def similarity(user1,user2):
+    print(user1,user2)
     try:
         user1=np.array(user1)-np.nanmean(user1)
         user2=np.array(user2)-np.nanmean(user2)
