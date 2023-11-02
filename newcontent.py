@@ -7,6 +7,8 @@ from googlemaps import convert
 from googlemaps import Client
 from googlemaps.convert import as_list
 import requests
+import io
+
 
 WORD = re.compile(r'\w+')
 URL = "http://localhost:8000/"
@@ -45,7 +47,9 @@ def clean_data(x):
 #feature that comes from the domain
 #change it to other domain so we can observe it works
 #metadata = pd.read_csv('data_content.csv', low_memory=False)
-metadata = pd.DataFrame.from_dict(requests.get(URL + 'data_content.json').json())
+#metadata = pd.DataFrame.from_dict(requests.get(URL + 'data_content.json').json())
+contentMetadata = requests.get(URL + "data_content.csv").content
+metadata = pd.read_csv(io.StringIO(contentMetadata.decode('utf-8')))
 
 print(metadata.head())
 print("Select your preferred category:\n1.wildlife \n2.heritage \n3.pilgirmage\n4.park\n5.museum")
