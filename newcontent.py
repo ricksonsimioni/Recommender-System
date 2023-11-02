@@ -6,8 +6,10 @@ from collections import Counter
 from googlemaps import convert
 from googlemaps import Client
 from googlemaps.convert import as_list
+import requests
 
 WORD = re.compile(r'\w+')
+URL = "http://localhost:8000/"
 
 #applying cosine similarity for finding similarities between user interests and places
 ##feature that comes from the configuration
@@ -42,7 +44,9 @@ def clean_data(x):
 
 #feature that comes from the domain
 #change it to other domain so we can observe it works
-metadata = pd.read_csv('data_content.csv', low_memory=False)
+#metadata = pd.read_csv('data_content.csv', low_memory=False)
+metadata = pd.DataFrame.from_dict(requests.get(URL + 'data_content.json').json())
+
 print(metadata.head())
 print("Select your preferred category:\n1.wildlife \n2.heritage \n3.pilgirmage\n4.park\n5.museum")
 text1 = input("Enter User Interests: ")   #user preference
@@ -61,18 +65,21 @@ metadata['score'] = metadata.apply(weighted_rating, axis=1)
 #print(metadata.head())
 cos=[]
 for i in list(metadata['category']):
-    #print(type(i))
+    #print(i)
     text2 = i
     vector2 = text_to_vector(text2)
     cosine = get_cosine(vector1, vector2)
     cos.append(cosine)
+    #print (cosine)
 metadata['cosine']=cos
-x = metadata['cosine'] > 0.5  # Lower cosine similarity threshold
+x = metadata['cosine'] >= 0.0  # Lower cosine similarity threshold
 rec = pd.DataFrame(metadata[x])
 rec=rec.sort_values('score',ascending=False)
 src=input("Enter your location: ")
 dest=list(rec['title'])
+#print(dest, "vazio")
 #print(type(dest))
+#print(src)
 
 
 
@@ -128,7 +135,7 @@ def distance_matrix(client,origins, destinations,
     #print(client._request("/maps/api/distancematrix/json", params))
     return client._request("/maps/api/distancematrix/json", params)
 
-client = Client(key='AIzaSyA8wq3R8WASxgUqTvWCh5blEmGzU8njVZ0')
+client = Client(key='AIzaSyBSmO0b8OnafbBbsKZV5tf00BSgbip2Gsg')
 dist=[]
 dur=[]
 for d in dest:
