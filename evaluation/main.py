@@ -10,14 +10,23 @@ import os
 
 def preprocessing(data_orig, filtered_data):
     file_type = ut.check_file_tipe(data_orig)
-
     if file_type == '.csv':
-        df_data = ut.load_csv(cf.PATH_DATA_COLL)
         ut.remove_nan_values(cf.PATH_DATA_COLL, filtered_data)
+    if file_type == 'json':
+        ut.read_json_data()
+
+
+def algorithm_settings():
+    neighborhood = 10
+    sim_settings = {'name': cf.SIMILARITY_FUNCTION,
+               'user_based': cf.IS_USER_BASED}
+    from surprise import KNNWithMeans
+    algo = KNNWithMeans(k=neighborhood, sim_options=sim_settings)
+    return algo
 
 
 def cross_validation(input_data, algo):
-    kf = KFold(n_splits=3)
+    kf = KFold(n_splits=cf.N_FOLD)
 
     # We'll use the famous SVD algorithm.
     for trainset, testset in kf.split(input_data):
@@ -56,23 +65,9 @@ def evaluation_pipeline(input_data):
 
 
 def evaluation_cross_fold(input_data, algo):
-    file_path = input_data  # Replace this with the actual path to your CSV
 
-    # Define the format of your CSV file.
-    # For example, line_format='user item rating timestamp', sep=',', skip_lines=1 if the first line is a header
     reader = Reader(line_format='user item rating timestamp', sep=',', skip_lines=1)
-
-    # Load the dataset from the CSV file
-    data = Dataset.load_from_file(file_path, reader=reader)
-
-   # sample random trainset and testset
-    # test set is made of 25% of the ratings.
-
-
-    # We'll use the famous SVD algorithm.
-
-
-    # Train the algorithm on the trainset, and predict ratings for the testset
+    data = Dataset.load_from_file(file_path=input_data, reader=reader)
     cross_validate(algo, data, verbose=True)
 
 
