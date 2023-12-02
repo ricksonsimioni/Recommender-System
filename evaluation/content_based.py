@@ -47,10 +47,8 @@ def run_validation():
     # print(type(dest))
     client = Client(key=cf.GOOGLE_KEY)
     dist, dur = algorithm_settings(ranked_pois['title'], client, src)
-
     ranked_pois['distance'] = dist
     ranked_pois['duration'] = dur
-
     final = pd.DataFrame(ranked_pois, index=None, columns=['title', 'category', 'score', 'distance', 'duration'])
     print(final)
 
