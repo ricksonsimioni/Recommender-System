@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature name="userModel"/>
+	<feature name="User Preferences"/>
+	<feature name="TOI Preference"/>
+	<feature name="Means of Transportation"/>
+	<feature name="Price Range"/>
+	<feature name="User Profile"/>
+	<feature name="Age"/>
+	<feature name="Gender"/>
+</configuration>

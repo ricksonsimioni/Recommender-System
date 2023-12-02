@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="TRS"/>
+	<feature automatic="selected" name="Configuration"/>
+	<feature automatic="selected" name="POI"/>
+	<feature manual="selected" name="Edit POI"/>
+	<feature name="Create POI"/>
+	<feature name="Delete POI"/>
+	<feature automatic="selected" name="Scenario"/>
+	<feature automatic="selected" name="Constraint"/>
+	<feature name="New Constraint"/>
+	<feature manual="selected" name="Edit Constraint"/>
+	<feature name="Delete Constraint"/>
+	<feature automatic="selected" name="Specification"/>
+	<feature automatic="selected" name="Scenario Type"/>
+	<feature manual="selected" name="Location"/>
+	<feature automatic="selected" name="MultiLocation"/>
+	<feature manual="selected" name="Yes"/>
+	<feature name="No"/>
+	<feature automatic="selected" name="Data"/>
+	<feature automatic="selected" name="Context Data"/>
+	<feature name="Context Real-Time Data"/>
+	<feature manual="selected" name="Environmental Conditions"/>
+	<feature name="Degree of Sustainability "/>
+	<feature manual="selected" name="Pollution Level"/>
+	<feature manual="selected" name="Traffic Condition"/>
+	<feature name="Noise Level"/>
+	<feature name="Weather Conditions"/>
+	<feature name="POI Constraint"/>
+	<feature name="Capacity of the Place"/>
+	<feature name="Working Hours"/>
+	<feature manual="selected" name="Context Offline Data"/>
+	<feature name="Difficulty"/>
+	<feature manual="selected" name="Public Parking"/>
+	<feature name="Pathway "/>
+	<feature automatic="selected" name="User Data"/>
+	<feature name="User Offline Data"/>
+	<feature manual="selected" name="User Profile"/>
+	<feature name="User Preferences"/>
+	<feature automatic="selected" name="User Real-time Data"/>
+	<feature manual="selected" name="User Geolocation"/>
+	<feature name="User Behaviour Sequence"/>
+	<feature manual="selected" name="User Feedback"/>
+	<feature manual="selected" name="Implicit Feedback"/>
+	<feature name="Explicit Feedback"/>
+	<feature automatic="selected" name="Recommendation"/>
+	<feature name="Preferences"/>
+	<feature automatic="selected" name="Starting Point"/>
+	<feature name="Destination Point"/>
+</configuration>

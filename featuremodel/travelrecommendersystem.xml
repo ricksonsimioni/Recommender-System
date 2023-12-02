@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showconstraints" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<or mandatory="true" name="TRS">
+			<graphics key="collapsed" value="false"/>
+			<and name="Recommendation">
+				<graphics key="collapsed" value="true"/>
+				<feature mandatory="true" name="Starting Point"/>
+				<feature mandatory="true" name="Destination"/>
+				<feature mandatory="true" name="Stop">
+					<graphics key="collapsed" value="false"/>
+				</feature>
+				<and name="Trip Preference">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Trip Length"/>
+					<feature name="Trip Difficulty "/>
+					<feature name="Trip Duration"/>
+					<feature name="Arrival by"/>
+					<feature name="Depart by"/>
+				</and>
+			</and>
+			<and name="Configuration">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="Scenario">
+					<graphics key="collapsed" value="false"/>
+					<or mandatory="true" name="Constraint">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Create Constrainst"/>
+						<feature name="Edit Constraint"/>
+						<feature name="Delete Constraint"/>
+					</or>
+					<and mandatory="true" name="Specification">
+						<graphics key="collapsed" value="false"/>
+						<feature mandatory="true" name="Scenario Type"/>
+						<feature mandatory="true" name="Scenario Location"/>
+						<or mandatory="true" name="MultiLocation">
+							<graphics key="collapsed" value="false"/>
+							<feature name="Yes"/>
+							<feature name="No"/>
+						</or>
+					</and>
+				</and>
+			</and>
+			<and name="Data">
+				<graphics key="collapsed" value="true"/>
+				<and mandatory="true" name="User Data">
+					<graphics key="collapsed" value="true"/>
+					<and mandatory="true" name="User Real-time Data">
+						<graphics key="collapsed" value="false"/>
+						<feature mandatory="true" name="User Geolocation"/>
+						<feature mandatory="true" name="User Behaviour Sequence"/>
+						<or mandatory="true" name="User Feedback">
+							<graphics key="collapsed" value="false"/>
+							<feature name="Implicit Feedback"/>
+							<feature name="Explicit Feedback"/>
+						</or>
+					</and>
+					<and mandatory="true" name="User Offlline Data">
+						<graphics key="collapsed" value="false"/>
+						<feature mandatory="true" name="User Profile"/>
+						<feature mandatory="true" name="User Preferences"/>
+					</and>
+				</and>
+				<or mandatory="true" name="POI">
+					<graphics key="collapsed" value="true"/>
+					<feature name="Create POI"/>
+					<and name="POIs Constraints">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Capacity"/>
+						<feature name="Working Hours"/>
+					</and>
+					<feature name="Edit POI"/>
+					<feature name="Delete POI"/>
+				</or>
+				<and mandatory="true" name="Context Data">
+					<graphics key="collapsed" value="false"/>
+					<and name="Context Real-time Data">
+						<graphics key="collapsed" value="false"/>
+						<and name="Environmental Conditions">
+							<graphics key="collapsed" value="false"/>
+							<feature name="Degree of Sustainability"/>
+							<feature name="Pollution Level"/>
+							<feature name="Traffic Condition"/>
+							<feature name="Noise Level"/>
+							<feature name="Weather Conditions"/>
+						</and>
+					</and>
+					<and name="Context Offline Data">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Difficulty"/>
+						<feature name="Public Parking"/>
+						<feature name="Pathway"/>
+					</and>
+				</and>
+			</and>
+		</or>
+	</struct>
+</featureModel>
