@@ -8,4 +8,5 @@
 	<feature name="User Profile"/>
 	<feature name="Age"/>
 	<feature name="Gender"/>
+	<feature name="Occupation"/>
 </configuration>

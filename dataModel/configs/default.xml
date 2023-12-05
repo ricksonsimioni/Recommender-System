@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
 	<feature name="dataModel"/>
-	<feature name="POI Data"/>
-	<feature name="POI Real-time Data"/>
-	<feature name="Working hours"/>
-	<feature name="Number of People"/>
-	<feature name="POI Offline Data"/>
-	<feature name="Capacity"/>
-	<feature name="POI Type"/>
-	<feature name="Location"/>
-	<feature name="TOI Data"/>
-	<feature name="TOI Type"/>
 	<feature name="User Data"/>
 	<feature name="User Real-Time Data"/>
 	<feature name="User Geolocation"/>
 	<feature name="User Behaviour Sequence"/>
-	<feature name="User Feedback"/>
 	<feature name="User Offline Data"/>
 	<feature name="User Profile"/>
 	<feature name="User Preferences"/>
@@ -23,5 +12,5 @@
 	<feature name="Context Real-time Data"/>
 	<feature name="Context Offline Data"/>
 	<feature name="Context Type"/>
-	<feature name="Context Location"/>
+	<feature name="Context Geolocation"/>
 </configuration>

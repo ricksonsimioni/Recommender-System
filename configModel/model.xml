@@ -13,13 +13,18 @@
 	<struct>
 		<and abstract="true" mandatory="true" name="configModel">
 			<and name="Constraints">
-				<feature name="Degree of Sustainability"/>
-				<feature name="Pollution Level"/>
-				<feature name="Traffic Condition"/>
-				<feature name="Noise Level"/>
-				<feature name="Weather Condition"/>
-				<feature name="Tolls"/>
-				<feature name="Means of Transportation"/>
+				<graphics key="collapsed" value="true"/>
+				<and name="EnviromentRelated">
+					<feature name="Pollution Level"/>
+					<feature name="Noise Level"/>
+					<feature name="Weather Condition"/>
+					<feature name="Degree of Sustainability"/>
+				</and>
+				<and name="MobilityRelated">
+					<feature name="Traffic Condition"/>
+					<feature name="Tolls"/>
+					<feature name="Means of Transportation"/>
+				</and>
 			</and>
 		</and>
 	</struct>

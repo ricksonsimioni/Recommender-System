@@ -13,8 +13,8 @@
 	<struct>
 		<and abstract="true" mandatory="true" name="Travel Recommender System">
 			<graphics key="collapsed" value="false"/>
-			<or name="Algorithm">
-				<graphics key="collapsed" value="false"/>
+			<or mandatory="true" name="Algorithm">
+				<graphics key="collapsed" value="true"/>
 				<feature name="CollaborativeFiltering"/>
 				<feature name="ContentBased"/>
 				<feature name="ContextAware"/>
@@ -24,19 +24,19 @@
 				<feature name="HybridBased"/>
 				<feature name="Other"/>
 			</or>
-			<and name="RecommendationItem">
+			<alt mandatory="true" name="RecommendationItem">
 				<feature name="POI"/>
 				<feature name="Itinerary"/>
-			</and>
-			<and name="DataPreprocessing">
-				<graphics key="collapsed" value="true"/>
+			</alt>
+			<or mandatory="true" name="DataPreprocessing">
+				<graphics key="collapsed" value="false"/>
 				<feature name="NLP"/>
 				<feature name="FeatureScalling"/>
 				<feature name="Vectorisation"/>
 				<feature name="DuplicatesRemoval"/>
 				<feature name="MissingDataManipulation"/>
 				<feature name="Normalisation"/>
-			</and>
+			</or>
 		</and>
 	</struct>
 </featureModel>

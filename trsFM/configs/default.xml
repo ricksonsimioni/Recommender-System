@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature name="Travel Recommender System"/>
-	<feature name="Algorithm"/>
+	<feature automatic="selected" name="Travel Recommender System"/>
+	<feature automatic="selected" name="Algorithm"/>
 	<feature name="CollaborativeFiltering"/>
-	<feature name="ContentBased"/>
+	<feature manual="selected" name="ContentBased"/>
 	<feature name="ContextAware"/>
 	<feature name="KnowledgeBased"/>
 	<feature name="SocialBased"/>
 	<feature name="DemographicBased"/>
 	<feature name="HybridBased"/>
 	<feature name="Other"/>
-	<feature name="RecommendationItem"/>
-	<feature name="POI"/>
-	<feature name="Itinerary"/>
-	<feature name="DataPreprocessing"/>
+	<feature automatic="selected" name="RecommendationItem"/>
+	<feature automatic="unselected" name="POI"/>
+	<feature manual="selected" name="Itinerary"/>
+	<feature automatic="selected" name="DataPreprocessing"/>
 	<feature name="NLP"/>
 	<feature name="FeatureScalling"/>
-	<feature name="Vectorisation"/>
+	<feature manual="selected" name="Vectorisation"/>
 	<feature name="DuplicatesRemoval"/>
 	<feature name="MissingDataManipulation"/>
 	<feature name="Normalisation"/>

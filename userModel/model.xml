@@ -20,6 +20,7 @@
 			<and name="User Profile">
 				<feature name="Age"/>
 				<feature name="Gender"/>
+				<feature name="Occupation"/>
 			</and>
 		</and>
 	</struct>

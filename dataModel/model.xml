@@ -34,7 +34,7 @@
 				<and name="Context Offline Data">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Context Type"/>
-					<feature name="Context Location"/>
+					<feature name="Context Geolocation"/>
 				</and>
 			</and>
 		</and>

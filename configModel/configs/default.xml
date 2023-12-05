@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
 	<feature name="configModel"/>
-	<feature name="Scenario"/>
 	<feature name="Constraints"/>
-	<feature name="Degree of Sustainability"/>
+	<feature name="EnviromentRelated"/>
 	<feature name="Pollution Level"/>
-	<feature name="Traffic Condition"/>
 	<feature name="Noise Level"/>
 	<feature name="Weather Condition"/>
+	<feature name="Degree of Sustainability"/>
+	<feature name="MobilityRelated"/>
+	<feature name="Traffic Condition"/>
 	<feature name="Tolls"/>
 	<feature name="Means of Transportation"/>
-	<feature name="NewFeature2"/>
 </configuration>
