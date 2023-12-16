@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature automatic="selected" name="Travel Recommender System"/>
+	<feature name="TRS"/>
+	<feature name="RecommenderSystem"/>
 	<feature automatic="selected" name="Algorithm"/>
 	<feature name="CollaborativeFiltering"/>
 	<feature manual="selected" name="ContentBased"/>
@@ -20,4 +21,37 @@
 	<feature name="DuplicatesRemoval"/>
 	<feature name="MissingDataManipulation"/>
 	<feature name="Normalisation"/>
+	<feature name="Configuration"/>
+	<feature name="Constraints"/>
+	<feature name="EnvironmentRelated"/>
+	<feature name="PollutionLevel"/>
+	<feature name="NoiseLevel"/>
+	<feature name="WeatherCondition"/>
+	<feature name="DegreeOfSustainability"/>
+	<feature name="MobilityRelated"/>
+	<feature name="TrafficLevel"/>
+	<feature name="Tolls"/>
+	<feature name="MeanOfTransportation"/>
+	<feature name="Data"/>
+	<feature name="UserData"/>
+	<feature name="UserRealTimeData"/>
+	<feature name="UserGeolocation"/>
+	<feature name="UserBehaviorSequence"/>
+	<feature name="UserOfflineData"/>
+	<feature name="UserProfileData"/>
+	<feature name="UserPreferenceData"/>
+	<feature name="ContextData"/>
+	<feature name="ContextRealTimeData"/>
+	<feature name="ContextOfflineData"/>
+	<feature name="ContextType"/>
+	<feature name="ContextGeolocation"/>
+	<feature name="User"/>
+	<feature name="UserPreference"/>
+	<feature name="TOIPreference"/>
+	<feature name="MeanOfTransportationPreferred"/>
+	<feature name="PriceRange"/>
+	<feature name="UserProfile"/>
+	<feature name="Age"/>
+	<feature name="Gender"/>
+	<feature name="Occupation"/>
 </configuration>

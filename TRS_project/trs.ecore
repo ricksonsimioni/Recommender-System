@@ -36,20 +36,4 @@
     <eLiterals name="WALK" value="4"/>
     <eLiterals name="MOTORCYCLE" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CollaborativeFiltering" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ContentBased" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ContextAware" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBased" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SocialBased" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DemographicBased" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HybridBased" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NLP" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FeatureScalling" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Vectorisation" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DuplicatesRemoval" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MissingDataManipulation" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Normalisation" eSuperTypes="#//DataPreProcessing"/>
 </ecore:EPackage>

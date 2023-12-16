@@ -2,9 +2,10 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_xR-s0I33Ee6dyN8UBnJvhg" selectedViews="_OvTJoI38Ee6dyN8UBnJvhg _1kWrMJHMEe6soqV5TMfmsQ" version="15.2.0.202303281325">
     <semanticResources>trs.ecore</semanticResources>
+    <semanticResources>recommendersystem.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_OvTJoI38Ee6dyN8UBnJvhg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Vj5SYJNsEe6soqV5TMfmsQ" name="TRS class diagram" repPath="#_Vj4rUJNsEe6soqV5TMfmsQ" changeId="1701781120295">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Vj5SYJNsEe6soqV5TMfmsQ" name="TRS class diagram" repPath="#_Vj4rUJNsEe6soqV5TMfmsQ" changeId="1701781489885">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="trs.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -584,17 +585,6 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
           </endLabelStyleDescription>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_lcu94JNtEe6soqV5TMfmsQ" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='EClass']"/>
-        </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_lcz2YJNtEe6soqV5TMfmsQ" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-        </computedStyleDescriptions>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_VyfIAJNsEe6soqV5TMfmsQ" name="POI" tooltipText="" incomingEdges="_VyrVRpNsEe6soqV5TMfmsQ _Vyr8UJNsEe6soqV5TMfmsQ _Vyr8V5NsEe6soqV5TMfmsQ _52YXnJNtEe6soqV5TMfmsQ" width="12" height="10">
@@ -661,10 +651,12 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_VyfvFpNsEe6soqV5TMfmsQ" name="UserPreferences" tooltipText="&#xA;ERROR : The attribute 'UserPreferences.preferredTransportationMode' is not transient so it must have a data type that is serializable" outgoingEdges="_VyquOZNsEe6soqV5TMfmsQ _52YXnJNtEe6soqV5TMfmsQ" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_VyfvFpNsEe6soqV5TMfmsQ" name="UserPreferences" tooltipText="" outgoingEdges="_VyquOZNsEe6soqV5TMfmsQ _52YXnJNtEe6soqV5TMfmsQ" width="12" height="10">
       <target xmi:type="ecore:EClass" href="trs.ecore#//UserPreferences"/>
       <semanticElements xmi:type="ecore:EClass" href="trs.ecore#//UserPreferences"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_lcvk8ZNtEe6soqV5TMfmsQ" labelColor="239,41,41" description="_lcu94JNtEe6soqV5TMfmsQ" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_32DCEZNuEe6soqV5TMfmsQ" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_qyGgFJNtEe6soqV5TMfmsQ" name="priceRange : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="trs.ecore#//UserPreferences/priceRange"/>
@@ -674,10 +666,12 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="__R16tZNtEe6soqV5TMfmsQ" name="preferredTransportationMode : TransportationMode = BIKE" tooltipText="&#xA;ERROR : The attribute 'UserPreferences.preferredTransportationMode' is not transient so it must have a data type that is serializable">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="__R16tZNtEe6soqV5TMfmsQ" name="preferredTransportationMode : EInt" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="trs.ecore#//UserPreferences/preferredTransportationMode"/>
         <semanticElements xmi:type="ecore:EAttribute" href="trs.ecore#//UserPreferences/preferredTransportationMode"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="__R16tpNtEe6soqV5TMfmsQ" labelColor="239,41,41" labelAlignment="LEFT" description="_lcz2YJNtEe6soqV5TMfmsQ" borderColor="239,41,41"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_32EQNZNuEe6soqV5TMfmsQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>

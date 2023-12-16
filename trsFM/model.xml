@@ -11,32 +11,90 @@
 		<graphics key="layoutalgorithm" value="1"/>
 	</properties>
 	<struct>
-		<and abstract="true" mandatory="true" name="Travel Recommender System">
+		<and abstract="true" mandatory="true" name="TRS">
 			<graphics key="collapsed" value="false"/>
-			<or mandatory="true" name="Algorithm">
-				<graphics key="collapsed" value="true"/>
-				<feature name="CollaborativeFiltering"/>
-				<feature name="ContentBased"/>
-				<feature name="ContextAware"/>
-				<feature name="KnowledgeBased"/>
-				<feature name="SocialBased"/>
-				<feature name="DemographicBased"/>
-				<feature name="HybridBased"/>
-				<feature name="Other"/>
-			</or>
-			<alt mandatory="true" name="RecommendationItem">
-				<feature name="POI"/>
-				<feature name="Itinerary"/>
-			</alt>
-			<or mandatory="true" name="DataPreprocessing">
+			<and mandatory="true" name="RecommenderSystem">
 				<graphics key="collapsed" value="false"/>
-				<feature name="NLP"/>
-				<feature name="FeatureScalling"/>
-				<feature name="Vectorisation"/>
-				<feature name="DuplicatesRemoval"/>
-				<feature name="MissingDataManipulation"/>
-				<feature name="Normalisation"/>
-			</or>
+				<or mandatory="true" name="Algorithm">
+					<graphics key="collapsed" value="true"/>
+					<feature name="CollaborativeFiltering"/>
+					<feature name="ContentBased"/>
+					<feature name="ContextAware"/>
+					<feature name="KnowledgeBased"/>
+					<feature name="SocialBased"/>
+					<feature name="DemographicBased"/>
+					<feature name="HybridBased"/>
+					<feature name="Other"/>
+				</or>
+				<or mandatory="true" name="RecommendationItem">
+					<graphics key="collapsed" value="true"/>
+					<feature name="POI"/>
+					<feature name="Itinerary"/>
+				</or>
+				<or mandatory="true" name="DataPreprocessing">
+					<graphics key="collapsed" value="false"/>
+					<feature name="NLP"/>
+					<feature name="FeatureScalling"/>
+					<feature name="Vectorisation"/>
+					<feature name="DuplicatesRemoval"/>
+					<feature name="MissingDataManipulation"/>
+					<feature name="Normalisation"/>
+				</or>
+			</and>
+			<and mandatory="true" name="Configuration">
+				<graphics key="collapsed" value="true"/>
+				<and name="Constraints">
+					<and name="EnvironmentRelated">
+						<graphics key="collapsed" value="true"/>
+						<feature name="PollutionLevel"/>
+						<feature name="NoiseLevel"/>
+						<feature name="WeatherCondition"/>
+						<feature name="DegreeOfSustainability"/>
+					</and>
+					<and name="MobilityRelated">
+						<graphics key="collapsed" value="true"/>
+						<feature name="TrafficLevel"/>
+						<feature name="Tolls"/>
+						<feature name="MeanOfTransportation"/>
+					</and>
+				</and>
+			</and>
+			<and mandatory="true" name="Data">
+				<graphics key="collapsed" value="true"/>
+				<alt name="UserData">
+					<graphics key="collapsed" value="true"/>
+					<and name="UserRealTimeData">
+						<feature name="UserGeolocation"/>
+						<feature name="UserBehaviorSequence"/>
+					</and>
+					<and name="UserOfflineData">
+						<feature name="UserProfileData"/>
+						<feature name="UserPreferenceData"/>
+					</and>
+				</alt>
+				<and name="ContextData">
+					<feature name="ContextRealTimeData"/>
+					<and name="ContextOfflineData">
+						<graphics key="collapsed" value="true"/>
+						<feature name="ContextType"/>
+						<feature name="ContextGeolocation"/>
+					</and>
+				</and>
+			</and>
+			<and mandatory="true" name="User">
+				<graphics key="collapsed" value="true"/>
+				<and name="UserPreference">
+					<graphics key="collapsed" value="true"/>
+					<feature name="TOIPreference"/>
+					<feature name="MeanOfTransportationPreferred"/>
+					<feature name="PriceRange"/>
+				</and>
+				<and name="UserProfile">
+					<feature name="Age"/>
+					<feature name="Gender"/>
+					<feature name="Occupation"/>
+				</and>
+			</and>
 		</and>
 	</struct>
 </featureModel>
