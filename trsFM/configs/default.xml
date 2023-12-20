@@ -21,7 +21,7 @@
 	<feature name="DuplicatesRemoval"/>
 	<feature name="MissingDataManipulation"/>
 	<feature name="Normalisation"/>
-	<feature name="Configuration"/>
+	<feature name="ScenarioConfiguration"/>
 	<feature name="Constraints"/>
 	<feature name="EnvironmentRelated"/>
 	<feature name="PollutionLevel"/>
@@ -32,6 +32,8 @@
 	<feature name="TrafficLevel"/>
 	<feature name="Tolls"/>
 	<feature name="MeanOfTransportation"/>
+	<feature name="IndoorScenario"/>
+	<feature name="OutdoorScenario"/>
 	<feature name="Data"/>
 	<feature name="UserData"/>
 	<feature name="UserRealTimeData"/>
