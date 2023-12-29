@@ -3,8 +3,8 @@
 	<feature automatic="selected" name="TRS"/>
 	<feature automatic="selected" name="RecommenderSystem"/>
 	<feature automatic="selected" name="Algorithm"/>
-	<feature automatic="unselected" name="CollaborativeFiltering"/>
-	<feature manual="selected" name="ContentBased"/>
+	<feature manual="selected" name="CollaborativeFiltering"/>
+	<feature automatic="unselected" name="ContentBased"/>
 	<feature automatic="unselected" name="ContextAware"/>
 	<feature automatic="unselected" name="KnowledgeBased"/>
 	<feature automatic="unselected" name="SocialBased"/>

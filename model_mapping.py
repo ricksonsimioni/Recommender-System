@@ -7,8 +7,7 @@ def parse_feature_model(path):
     root = tree.getroot()
     list_selected = []
     for child in root.findall('feature'):
-        if child.attrib.get('manual') or child.attrib.get('automatic'):
-            #print(child.attrib.get('name'))
+        if child.attrib.get('manual'):
             list_selected.append(child.attrib.get('name'))
 
     return list_selected
@@ -68,14 +67,14 @@ def parse_metamodel(path):
     return e_packages, e_classes, e_references
 
 
-def mapping_ft_to_mm(root_ft, root_mm):
+def mapping_ft_to_mm(root_ft,classes):
     list_feature = parse_feature_model(root_ft)
-    pkgs, classes, refs = parse_metamodel(root_mm)
+
     mapped_classes = []
     for c in classes:
         if c.name in list_feature:
             print('mapped', c)
-            mapped_classes.append(c)
+            mapped_classes.append(c.name)
 
     return mapped_classes
 
@@ -127,7 +126,7 @@ def generate_model(ft, mm_path):
     return model_gen
 
 
-def instantiate_tourism_rs_model(mm_path):
+def instantiate_tourism_rs_model(root_ft, mm_path):
     # Load the metamodel
     rset = ResourceSet()
     mm_resource = rset.get_resource(URI(mm_path))
@@ -139,8 +138,30 @@ def instantiate_tourism_rs_model(mm_path):
     # Register the metamodel
     rset.metamodel_registry[metamodel.nsURI] = metamodel
 
+    e_packages = []
+    e_classes = []
+    e_references = []
+
+    def process_e_package(package):
+        e_packages.append(package)
+        for eclass in package.eClassifiers:
+            if isinstance(eclass, EClass):
+                e_classes.append(eclass)
+                for eref in eclass.eStructuralFeatures:
+                    if isinstance(eref, EReference):
+                        e_references.append(eref)
+
+    # Assuming the root of the metamodel is an EPackage
+    if isinstance(metamodel, EPackage):
+        process_e_package(metamodel)
+        # If the metamodel contains subpackages, process them as well
+        for subpack in metamodel.eSubpackages:
+            process_e_package(subpack)
+
     # Create a new model resource
     model_resource = rset.create_resource(URI('TRS_project/tourism_rs_model.xmi'))
+
+
 
     # Instantiate the root element (TourismRS)
     tourism_rs_class = metamodel.getEClassifier('TourismRS')
@@ -149,13 +170,17 @@ def instantiate_tourism_rs_model(mm_path):
 
     tourism_rs_instance = tourism_rs_class()
 
-    # Instantiate the algorithm metaclass (CollaborativeFiltering)
-    algorithm_class = metamodel.getEClassifier('CollaborativeFiltering')
-    if algorithm_class is None:
-        raise ValueError("Algorithm class not found in the metamodel")
+    mapped_classes = mapping_ft_to_mm(root_ft, e_classes)
+    print(mapped_classes)
 
-    algorithm_instance = algorithm_class()
-    tourism_rs_instance.algorithm = algorithm_instance
+    # Instantiate the algorithm metaclass (CollaborativeFiltering)
+    if 'CollaborativeFiltering' in mapped_classes:
+        algorithm_class = metamodel.getEClassifier('CollaborativeFiltering')
+        if algorithm_class is None:
+            raise ValueError("Algorithm class not found in the metamodel")
+
+        algorithm_instance = algorithm_class()
+        tourism_rs_instance.algorithm = algorithm_instance
 
     # Add the root instance to the resource
     model_resource.append(tourism_rs_instance)
@@ -166,9 +191,36 @@ def instantiate_tourism_rs_model(mm_path):
     return model_resource
 
 
+def append_to_xml_tag(xml_string, append_str):
+    # Find the position of the last element before '>'
+    last_element_pos = xml_string.rfind('>')
+
+    # If '>' is not found or at the end of the string, return the original string
+    if last_element_pos == -1 or last_element_pos == len(xml_string) - 1:
+        return xml_string
+
+    # Insert the append_str before the last '>'
+    return xml_string[:last_element_pos] + append_str + xml_string[last_element_pos:]
+
+
+
+def add_schema_location_to_xmi(xmi_file_path, schema_location, out_file):
+    with open(out_file, 'w', encoding='utf-8') as res:
+        with open(xmi_file_path, 'r', encoding='utf-8') as model_file:
+            lines = model_file.readlines()
+            for l in lines:
+                if 'xmlns:xmi="http://www.omg.org/XMI' in l:
+                    res.write(append_to_xml_tag(l,schema_location))
+                else:
+                    res.write(l)
+
+
+    #tree.write(xmi_file_path, encoding='utf-8', xml_declaration=True)
+
 if __name__ == '__main__':
     #parse_feature_model('trsFM/configs/configTRS.xml')
-    instantiate_tourism_rs_model('TRS_project/recommendersystem.ecore')
+    instantiate_tourism_rs_model('trsFM/configs/configTRS.xml','TRS_project/recommendersystem.ecore')
+    add_schema_location_to_xmi('TRS_project/tourism_rs_model.xmi', ' xsi:schemaLocation="https://org.rs recommendersystem.ecore"', 'TRS_project/model.xmi')
     #generate_model('trsFM/configs/configTRS.xml', 'TRS_project/recommendersystem.ecore' )
     #attributes = parse_attributes('TRS_project/recommendersystem.ecore')
     #print(attributes)
