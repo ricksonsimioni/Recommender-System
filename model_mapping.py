@@ -3,16 +3,11 @@ from pyecore.resources import ResourceSet, URI
 from pyecore.ecore import EPackage, EClass, EReference
 
 
-
 def parse_feature_model(path):
     tree = ET.parse(path)
     root = tree.getroot()
     for child in root.findall('feature'):
         print(child.attrib.get('name'),child.attrib.get('manual'))
-
-
-
-
 
 
 def parse_metamodel(path):
@@ -51,12 +46,13 @@ def generate_model(ft,mm):
     new_model_resource = rset.create_resource(URI('path_to_new_model.xmi'))
 
     # Populate the new model based on the transformation logic
-    mapping_ft_to_mm(ft,mm)
+    mapping_ft_to_mm(ft, mm)
 
     # Save the transformed model
     new_model_resource.save()
 
     return
+
 
 if __name__ == '__main__':
     pkgs, classes, refs = parse_metamodel('lowcoders.ecore')

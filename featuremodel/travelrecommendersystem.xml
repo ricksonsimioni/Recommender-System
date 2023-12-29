@@ -14,7 +14,7 @@
 		<or mandatory="true" name="TRS">
 			<graphics key="collapsed" value="false"/>
 			<and name="Recommendation">
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<feature mandatory="true" name="Starting Point"/>
 				<feature mandatory="true" name="Destination"/>
 				<feature mandatory="true" name="Stop">
@@ -52,9 +52,9 @@
 				</and>
 			</and>
 			<and name="Data">
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<and mandatory="true" name="User Data">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<and mandatory="true" name="User Real-time Data">
 						<graphics key="collapsed" value="false"/>
 						<feature mandatory="true" name="User Geolocation"/>
@@ -72,7 +72,7 @@
 					</and>
 				</and>
 				<or mandatory="true" name="POI">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<feature name="Create POI"/>
 					<and name="POIs Constraints">
 						<graphics key="collapsed" value="false"/>
