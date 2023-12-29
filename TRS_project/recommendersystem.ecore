@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="RecommenderSystem" nsURI="https://org.rs" nsPrefix="org.rs">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="recommender" nsURI="https://org.rs" nsPrefix="org.rs">
   <eClassifiers xsi:type="ecore:EClass" name="Algorithm"/>
   <eClassifiers xsi:type="ecore:EClass" name="CollaborativeFiltering" eSuperTypes="#//Algorithm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUserBased" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -19,4 +19,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DuplicatesRemoval" eSuperTypes="#//DataPreProcessing"/>
   <eClassifiers xsi:type="ecore:EClass" name="MissingDataManipulation" eSuperTypes="#//DataPreProcessing"/>
   <eClassifiers xsi:type="ecore:EClass" name="Normalisation" eSuperTypes="#//DataPreProcessing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TourismRS">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithm" eType="#//Algorithm"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

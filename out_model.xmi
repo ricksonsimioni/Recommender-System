@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.0">
+  <ns0:Algorithm xmlns:ns0="https://org.rs"/>
+  <ns0:CollaborativeFiltering xmlns:ns0="https://org.rs"/>
+  <ns0:ContentBased xmlns:ns0="https://org.rs"/>
+  <ns0:ContextAware xmlns:ns0="https://org.rs"/>
+  <ns0:KnowledgeBased xmlns:ns0="https://org.rs"/>
+  <ns0:SocialBased xmlns:ns0="https://org.rs"/>
+  <ns0:DemographicBased xmlns:ns0="https://org.rs"/>
+  <ns0:HybridBased xmlns:ns0="https://org.rs"/>
+  <ns0:DataPreProcessing xmlns:ns0="https://org.rs"/>
+  <ns0:FeatureScalling xmlns:ns0="https://org.rs"/>
+  <ns0:NLP xmlns:ns0="https://org.rs"/>
+  <ns0:Vectorisation xmlns:ns0="https://org.rs"/>
+  <ns0:DuplicatesRemoval xmlns:ns0="https://org.rs"/>
+  <ns0:MissingDataManipulation xmlns:ns0="https://org.rs"/>
+  <ns0:Normalisation xmlns:ns0="https://org.rs"/>
+  <ns0:TourismRS xmlns:ns0="https://org.rs"/>
+</xmi:XMI>

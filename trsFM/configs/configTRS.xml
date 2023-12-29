@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="TRS"/>
+	<feature automatic="selected" name="RecommenderSystem"/>
+	<feature automatic="selected" name="Algorithm"/>
+	<feature automatic="unselected" name="CollaborativeFiltering"/>
+	<feature manual="selected" name="ContentBased"/>
+	<feature automatic="unselected" name="ContextAware"/>
+	<feature automatic="unselected" name="KnowledgeBased"/>
+	<feature automatic="unselected" name="SocialBased"/>
+	<feature automatic="unselected" name="DemographicBased"/>
+	<feature automatic="unselected" name="HybridBased"/>
+	<feature automatic="selected" name="RecommendationItem"/>
+	<feature automatic="unselected" name="POI"/>
+	<feature manual="selected" name="Itinerary"/>
+	<feature automatic="selected" name="DataPreprocessing"/>
+	<feature name="NLP"/>
+	<feature manual="selected" name="FeatureScalling"/>
+	<feature name="Vectorisation"/>
+	<feature name="DuplicatesRemoval"/>
+	<feature name="MissingDataManipulation"/>
+	<feature name="Normalisation"/>
+	<feature automatic="selected" name="ScenarioConfiguration"/>
+	<feature manual="selected" name="IndoorScenario"/>
+	<feature automatic="unselected" name="OutdoorScenario"/>
+	<feature automatic="selected" name="Data"/>
+	<feature automatic="selected" name="UserData"/>
+	<feature automatic="selected" name="UserRealTimeData"/>
+	<feature automatic="selected" name="UserGeolocation"/>
+	<feature automatic="selected" name="UserBehaviorSequence"/>
+	<feature automatic="selected" name="UserOfflineData"/>
+	<feature automatic="selected" name="UserProfileData"/>
+	<feature automatic="selected" name="UserPreferenceData"/>
+	<feature automatic="selected" name="ContextData"/>
+	<feature automatic="selected" name="ContextRealTimeData"/>
+	<feature automatic="selected" name="ContextOfflineData"/>
+	<feature automatic="selected" name="ContextType"/>
+	<feature automatic="selected" name="ContextGeolocation"/>
+	<feature automatic="selected" name="User"/>
+	<feature automatic="selected" name="UserPreference"/>
+	<feature automatic="selected" name="TOIPreference"/>
+	<feature automatic="selected" name="MeanOfTransportationPreferred"/>
+	<feature automatic="selected" name="PriceRange"/>
+	<feature automatic="selected" name="UserProfile"/>
+	<feature automatic="selected" name="Age"/>
+	<feature automatic="selected" name="Gender"/>
+	<feature automatic="selected" name="Occupation"/>
+</configuration>

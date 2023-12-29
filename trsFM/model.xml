@@ -14,8 +14,8 @@
 		<and abstract="true" mandatory="true" name="TRS">
 			<graphics key="collapsed" value="false"/>
 			<and mandatory="true" name="RecommenderSystem">
-				<graphics key="collapsed" value="true"/>
-				<or mandatory="true" name="Algorithm">
+				<graphics key="collapsed" value="false"/>
+				<alt mandatory="true" name="Algorithm">
 					<graphics key="collapsed" value="false"/>
 					<feature name="CollaborativeFiltering"/>
 					<feature name="ContentBased"/>
@@ -24,15 +24,14 @@
 					<feature name="SocialBased"/>
 					<feature name="DemographicBased"/>
 					<feature name="HybridBased"/>
-					<feature name="Other"/>
-				</or>
-				<or mandatory="true" name="RecommendationItem">
-					<graphics key="collapsed" value="true"/>
+				</alt>
+				<alt mandatory="true" name="RecommendationItem">
+					<graphics key="collapsed" value="false"/>
 					<feature name="POI"/>
 					<feature name="Itinerary"/>
-				</or>
+				</alt>
 				<or mandatory="true" name="DataPreprocessing">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<feature name="NLP"/>
 					<feature name="FeatureScalling"/>
 					<feature name="Vectorisation"/>
@@ -41,37 +40,37 @@
 					<feature name="Normalisation"/>
 				</or>
 			</and>
-			<and mandatory="true" name="ScenarioConfiguration">
+			<alt mandatory="true" name="ScenarioConfiguration">
 				<graphics key="collapsed" value="false"/>
 				<feature name="IndoorScenario"/>
 				<feature name="OutdoorScenario"/>
-			</and>
+			</alt>
 			<and mandatory="true" name="Data">
-				<graphics key="collapsed" value="true"/>
-				<and name="UserData">
-					<graphics key="collapsed" value="true"/>
-					<and name="UserRealTimeData">
-						<feature name="UserGeolocation"/>
-						<feature name="UserBehaviorSequence"/>
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="UserData">
+					<graphics key="collapsed" value="false"/>
+					<and mandatory="true" name="UserRealTimeData">
+						<feature mandatory="true" name="UserGeolocation"/>
+						<feature mandatory="true" name="UserBehaviorSequence"/>
 					</and>
-					<and name="UserOfflineData">
-						<feature name="UserProfileData"/>
-						<feature name="UserPreferenceData"/>
+					<and mandatory="true" name="UserOfflineData">
+						<feature mandatory="true" name="UserProfileData"/>
+						<feature mandatory="true" name="UserPreferenceData"/>
 					</and>
 				</and>
-				<and name="ContextData">
-					<feature name="ContextRealTimeData"/>
-					<and name="ContextOfflineData">
+				<and mandatory="true" name="ContextData">
+					<feature mandatory="true" name="ContextRealTimeData"/>
+					<and mandatory="true" name="ContextOfflineData">
 						<graphics key="collapsed" value="false"/>
-						<feature name="ContextType"/>
-						<feature name="ContextGeolocation"/>
+						<feature mandatory="true" name="ContextType"/>
+						<feature mandatory="true" name="ContextGeolocation"/>
 					</and>
 				</and>
 			</and>
 			<and mandatory="true" name="User">
-				<graphics key="collapsed" value="true"/>
+				<graphics key="collapsed" value="false"/>
 				<and mandatory="true" name="UserPreference">
-					<graphics key="collapsed" value="true"/>
+					<graphics key="collapsed" value="false"/>
 					<feature mandatory="true" name="TOIPreference"/>
 					<feature mandatory="true" name="MeanOfTransportationPreferred"/>
 					<feature mandatory="true" name="PriceRange"/>

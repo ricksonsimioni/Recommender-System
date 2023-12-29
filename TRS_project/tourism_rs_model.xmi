@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.rs:TourismRS
+xmlns:xmi="http://www.omg.org/XMI"
+xmlns:org.rs="https://org.rs"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://org.rs recommendersystem.ecore"
+xmi:version="2.0">
+  <algorithm xsi:type="org.rs:CollaborativeFiltering"/>
+</org.rs:TourismRS>
