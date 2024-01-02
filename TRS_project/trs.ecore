@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="TRS" nsURI="https://org.trs" nsPrefix="org.trs">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="trs" nsURI="https://org.trs" nsPrefix="org.trs">
   <eClassifiers xsi:type="ecore:EClass" name="POI">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="topicOfInterest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -10,14 +10,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutdoorPOI" eSuperTypes="#//POI">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="meansOfTransportion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="meansOfTransportation"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserPreferences">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preferredItinerary" eType="#//Itinerary"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preferredItinerary" eType="#//Itinerary"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priceRange" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="preferredTransportationMode"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preferredTOI" eType="#//POI"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preferredPOI" eType="#//POI"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Gender" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -35,5 +38,11 @@
     <eLiterals name="TRAIN" value="3"/>
     <eLiterals name="WALK" value="4"/>
     <eLiterals name="MOTORCYCLE" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userPreference" upperBound="-1"
+        eType="#//UserPreferences" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userProfile" eType="#//UserProfile"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
