@@ -22,5 +22,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TourismRS">
     <eStructuralFeatures xsi:type="ecore:EReference" name="algorithm" eType="#//Algorithm"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preprocessing" eType="#//DataPreProcessing"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -39,7 +39,7 @@
     <eLiterals name="WALK" value="4"/>
     <eLiterals name="MOTORCYCLE" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+  <eClassifiers xsi:type="ecore:EClass" name="TRSConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="userPreference" upperBound="-1"
         eType="#//UserPreferences" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="userProfile" eType="#//UserProfile"

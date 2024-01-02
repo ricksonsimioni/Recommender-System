@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.trs:Configuration
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:org.trs="https://org.trs"
-    xsi:schemaLocation="https://org.trs trs.ecore">
-  <userPreference/>
-</org.trs:Configuration>
