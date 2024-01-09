@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 from pyecore.resources import ResourceSet, URI
-from pyecore.ecore import EPackage, EClass, EReference, EAttribute
+from pyecore.ecore import EPackage, EClass, EReference, EAttribute, EObject
+from jinja2 import Environment, FileSystemLoader
 
 def parse_feature_model(path):
     tree = ET.parse(path)
@@ -214,15 +215,69 @@ def add_schema_location_to_xmi(xmi_file_path, schema_location, out_file):
                 else:
                     res.write(l)
 
+def gather_classes(element, class_info):
+    if isinstance(element, EObject):
+        eclass = element.eClass
+        class_name = eclass.name
+        if class_name not in class_info:
+            # Get attribute names for the class
+            attributes = [attr.name for attr in eclass.eAttributes if isinstance(attr, EAttribute)]
+            class_info[class_name] = attributes
+        for child in element.eContents:
+            gather_classes(child, class_info)
+
+def open_xmi_and_initialize_template(xmi_path, template_path, template_name, metamodel_path):
+    # Load and register the metamodel
+
+
+    rset = ResourceSet()
+    mm_resource = rset.get_resource(URI(metamodel_path))
+    metamodel = mm_resource.contents[0]
+    if isinstance(metamodel, EPackage):
+        rset.metamodel_registry[metamodel.nsURI] = metamodel
+    else:
+        raise ValueError("The metamodel at the specified path is not an EPackage")
+
+    # Load the XMI model using the registered metamodel
+    resource = rset.get_resource(URI(xmi_path))
+    root = resource.contents[0]
+
+    # Extract data from the XMI model
+    # Customize this part according to the structure of your XMI model
+
+    class_info = {}
+    gather_classes(root, class_info)
+
+
+    model_data = {
+        'class_info': class_info,
+        # Add more data extraction as needed
+    }
+
+    # Initialize Jinja2 environment and load the template
+    env = Environment(loader=FileSystemLoader(template_path))
+    template = env.get_template(template_name)
+
+    # Render the template with the model data
+    rendered_output = template.render(model_data)
+
+    return rendered_output
+
 
     #tree.write(xmi_file_path, encoding='utf-8', xml_declaration=True)
 
 if __name__ == '__main__':
     #parse_feature_model('trsFM/configs/configTRS.xml')
-    instantiate_tourism_rs_model('trsFM/configs/configTRS.xml','TRS_project/recommendersystem.ecore')
-    add_schema_location_to_xmi('TRS_project/tourism_rs_model.xmi', ' xsi:schemaLocation="https://org.rs recommendersystem.ecore"', 'TRS_project/model.xmi')
+    #instantiate_tourism_rs_model('trsFM/configs/configTRS.xml','TRS_project/recommendersystem.ecore')
+    #add_schema_location_to_xmi('TRS_project/tourism_rs_model.xmi', ' xsi:schemaLocation="https://org.rs recommendersystem.ecore"', 'TRS_project/model.xmi')
     #generate_model('trsFM/configs/configTRS.xml', 'TRS_project/recommendersystem.ecore' )
     #attributes = parse_attributes('TRS_project/recommendersystem.ecore')
+    xmi_path = 'TRS_project/tourism_rs_model.xmi'
+    template_path = 'template'
+    template_name = 'recommendation_template.jinja'
+    metamodel_path = 'TRS_project/recommendersystem.ecore'
+    rendered_code = open_xmi_and_initialize_template(xmi_path, template_path, template_name, metamodel_path)
+    print(rendered_code)
     #print(attributes)
 
 

@@ -152,8 +152,8 @@ for d in dest:
     dist.append(a1)
     dur.append(a2)
 
-rec['distance']=dist
-rec['duration']=dur
+rec['distance'] = dist
+rec['duration'] = dur
 
 final=pd.DataFrame(rec,index=None,columns=['title','category','score','distance','duration'])
 print(final)

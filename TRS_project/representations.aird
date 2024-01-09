@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_xR-s0I33Ee6dyN8UBnJvhg" selectedViews="_OvTJoI38Ee6dyN8UBnJvhg _1kWrMJHMEe6soqV5TMfmsQ" version="15.2.0.202303281325">
-    <semanticResources>trs.ecore</semanticResources>
+  <viewpoint:DAnalysis uid="_xR-s0I33Ee6dyN8UBnJvhg" selectedViews="_OvTJoI38Ee6dyN8UBnJvhg _1kWrMJHMEe6soqV5TMfmsQ _dXY8cK8OEe6-crawPss9FQ _dXgRMK8OEe6-crawPss9FQ" version="15.2.0.202303281325">
     <semanticResources>recommendersystem.ecore</semanticResources>
+    <semanticResources>model.xmi</semanticResources>
+    <semanticResources>trs.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_OvTJoI38Ee6dyN8UBnJvhg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Vj5SYJNsEe6soqV5TMfmsQ" name="TRS class diagram" repPath="#_Vj4rUJNsEe6soqV5TMfmsQ" changeId="1701781489885">
@@ -12,6 +13,12 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_1kWrMJHMEe6soqV5TMfmsQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_dXY8cK8OEe6-crawPss9FQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_dXgRMK8OEe6-crawPss9FQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram uid="_Vj4rUJNsEe6soqV5TMfmsQ">

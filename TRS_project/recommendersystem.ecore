@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="recommender" nsURI="https://org.rs" nsPrefix="org.rs">
-  <eClassifiers xsi:type="ecore:EClass" name="Algorithm"/>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="trs" nsURI="https://org.trs" nsPrefix="org.trs">
+  <eClassifiers xsi:type="ecore:EClass" name="Algorithm" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollaborativeFiltering" eSuperTypes="#//Algorithm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUserBased" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="neighbors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -12,17 +14,29 @@
   <eClassifiers xsi:type="ecore:EClass" name="SocialBased" eSuperTypes="#//Algorithm"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemographicBased" eSuperTypes="#//Algorithm"/>
   <eClassifiers xsi:type="ecore:EClass" name="HybridBased" eSuperTypes="#//Algorithm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FeatureScalling" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NLP" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Vectorisation" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DuplicatesRemoval" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MissingDataManipulation" eSuperTypes="#//DataPreProcessing"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Normalisation" eSuperTypes="#//DataPreProcessing"/>
   <eClassifiers xsi:type="ecore:EClass" name="TourismRS">
     <eStructuralFeatures xsi:type="ecore:EReference" name="algorithm" eType="#//Algorithm"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preprocessing" eType="#//DataPreProcessing"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preprocessing" upperBound="-1"
+        eType="#//DataPreprocessingType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" upperBound="-1" eType="#//RecommendationItem"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="#//DataEncoding"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecommendationItem" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="POI" eSuperTypes="#//RecommendationItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Itinerary" eSuperTypes="#//RecommendationItem"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataPreprocessingType">
+    <eLiterals name="DUPLICATE_REMOVAL"/>
+    <eLiterals name="VECTORIZATION" value="1"/>
+    <eLiterals name="NLP" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataEncoding">
+    <eLiterals name="CSV"/>
+    <eLiterals name="JSON" value="1"/>
+    <eLiterals name="GEOJSON" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -5,10 +5,10 @@
 		<graphics key="legendautolayout" value="true"/>
 		<graphics key="showconstraints" value="true"/>
 		<graphics key="showshortnames" value="false"/>
-		<graphics key="layout" value="horizontal"/>
+		<graphics key="layout" value="vertical"/>
 		<graphics key="showcollapsedconstraints" value="true"/>
 		<graphics key="legendhidden" value="false"/>
-		<graphics key="layoutalgorithm" value="1"/>
+		<graphics key="layoutalgorithm" value="4"/>
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="TRS">
@@ -27,60 +27,123 @@
 				</alt>
 				<alt mandatory="true" name="RecommendationItem">
 					<graphics key="collapsed" value="false"/>
-					<feature name="POI"/>
+					<feature name="POIList"/>
 					<feature name="Itinerary"/>
 				</alt>
 				<or mandatory="true" name="DataPreprocessing">
 					<graphics key="collapsed" value="false"/>
 					<feature name="NLP"/>
-					<feature name="FeatureScalling"/>
-					<feature name="Vectorisation"/>
+					<feature name="Vectorization"/>
 					<feature name="DuplicatesRemoval"/>
 					<feature name="MissingDataManipulation"/>
-					<feature name="Normalisation"/>
 				</or>
+				<alt mandatory="true" name="DataEncoding">
+					<feature name="CSV"/>
+					<feature name="JSON"/>
+					<feature name="GEOJSON"/>
+				</alt>
 			</and>
-			<alt mandatory="true" name="ScenarioConfiguration">
+			<alt mandatory="true" name="ScenarioType">
 				<graphics key="collapsed" value="false"/>
-				<feature name="IndoorScenario"/>
-				<feature name="OutdoorScenario"/>
-			</alt>
-			<and mandatory="true" name="Data">
-				<graphics key="collapsed" value="false"/>
-				<and mandatory="true" name="UserData">
-					<graphics key="collapsed" value="false"/>
-					<and mandatory="true" name="UserRealTimeData">
-						<feature mandatory="true" name="UserGeolocation"/>
-						<feature mandatory="true" name="UserBehaviorSequence"/>
-					</and>
-					<and mandatory="true" name="UserOfflineData">
-						<feature mandatory="true" name="UserProfileData"/>
-						<feature mandatory="true" name="UserPreferenceData"/>
-					</and>
-				</and>
-				<and mandatory="true" name="ContextData">
-					<feature mandatory="true" name="ContextRealTimeData"/>
-					<and mandatory="true" name="ContextOfflineData">
+				<or name="Indoor">
+					<or name="IndoorHistoricalData">
 						<graphics key="collapsed" value="false"/>
-						<feature mandatory="true" name="ContextType"/>
-						<feature mandatory="true" name="ContextGeolocation"/>
-					</and>
-				</and>
-			</and>
+						<feature name="WorkingHours"/>
+						<feature name="HistoricalLocation"/>
+						<feature name="Capacity"/>
+					</or>
+					<or name="IndoorRealTimeData">
+						<feature name="Strike"/>
+						<feature name="Crowd"/>
+					</or>
+				</or>
+				<or name="Outdoor">
+					<or name="OutdoorHistoricalData">
+						<feature name="Forecasting"/>
+						<feature name="Duration"/>
+					</or>
+					<or name="OutdoorRealTimeData">
+						<feature name="WheatherCondition"/>
+						<feature name="IOTSensorData"/>
+					</or>
+				</or>
+			</alt>
 			<and mandatory="true" name="User">
 				<graphics key="collapsed" value="false"/>
 				<and mandatory="true" name="UserPreference">
 					<graphics key="collapsed" value="false"/>
-					<feature mandatory="true" name="TOIPreference"/>
-					<feature mandatory="true" name="MeanOfTransportationPreferred"/>
-					<feature mandatory="true" name="PriceRange"/>
+					<alt mandatory="true" name="TOIPreference">
+						<alt name="CityTourism">
+							<feature name="Museum"/>
+							<feature name="Church"/>
+						</alt>
+						<alt name="Nature">
+							<feature name="Hiking"/>
+							<feature name="GuidedTour"/>
+						</alt>
+					</alt>
+					<or mandatory="true" name="MeanOfTransportation">
+						<feature name="Car"/>
+						<feature name="Bycicle"/>
+						<feature name="Public"/>
+					</or>
+					<alt mandatory="true" name="PriceRange">
+						<feature name="Low"/>
+						<feature name="Medium"/>
+						<feature name="High"/>
+					</alt>
+					<feature name="UserBehaviorSequence"/>
+					<feature name="UserLocation"/>
 				</and>
 				<and mandatory="true" name="UserProfile">
-					<feature mandatory="true" name="Age"/>
-					<feature mandatory="true" name="Gender"/>
-					<feature mandatory="true" name="Occupation"/>
+					<alt mandatory="true" name="Age">
+						<feature name="Child"/>
+						<feature name="Adult"/>
+					</alt>
+					<alt name="Gender">
+						<feature name="Male"/>
+						<feature name="Female"/>
+					</alt>
+					<alt mandatory="true" name="Occupation">
+						<feature name="Worker"/>
+						<feature name="Student"/>
+					</alt>
+					<alt name="HikingSkill">
+						<feature name="HighLevel"/>
+						<feature name="MediumLevel"/>
+						<feature name="LowLevel"/>
+					</alt>
 				</and>
 			</and>
 		</and>
 	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>Hiking</var>
+				<var>HikingSkill</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Indoor</var>
+				<var>CityTourism</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Outdoor</var>
+				<var>Nature</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<disj>
+					<var>UserLocation</var>
+					<var>HistoricalLocation</var>
+				</disj>
+				<var>GEOJSON</var>
+			</imp>
+		</rule>
+	</constraints>
 </featureModel>
