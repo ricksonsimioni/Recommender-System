@@ -12,6 +12,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Outdoor" eSuperTypes="#//Scenario">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="meansOfTransportation"
         eType="#//TransportationMode" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weatherCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserPreferences">
     <eStructuralFeatures xsi:type="ecore:EReference" name="preferredItinerary" eType="#//Itinerary"

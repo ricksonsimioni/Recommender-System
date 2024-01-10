@@ -14,18 +14,19 @@
 	<feature automatic="unselected" name="POIList"/>
 	<feature manual="selected" name="Itinerary"/>
 	<feature automatic="selected" name="DataPreprocessing"/>
-	<feature manual="selected" name="NLP"/>
-	<feature name="Vectorization"/>
-	<feature name="DuplicatesRemoval"/>
-	<feature name="MissingDataManipulation"/>
+	<feature name="NLP"/>
+	<feature name="VECTORIZATION"/>
+	<feature manual="selected" name="DUPLICATE_REMOVAL"/>
+	<feature name="MISSING_DATA_REMOVAL"/>
 	<feature automatic="selected" name="DataEncoding"/>
 	<feature manual="selected" name="CSV"/>
 	<feature automatic="unselected" name="JSON"/>
 	<feature automatic="unselected" name="GEOJSON"/>
 	<feature automatic="selected" name="ScenarioType"/>
 	<feature automatic="selected" manual="selected" name="Indoor"/>
-	<feature name="IndoorHistoricalData"/>
-	<feature name="WorkingHours"/>
+	<feature automatic="selected" manual="selected" name="IndoorHistoricalData"/>
+	<feature manual="selected" name="WorkingHours"/>
+	<feature automatic="unselected" name="HistoricalLocation"/>
 	<feature name="Capacity"/>
 	<feature name="IndoorRealTimeData"/>
 	<feature name="Strike"/>
@@ -54,8 +55,8 @@
 	<feature manual="selected" name="Low"/>
 	<feature automatic="unselected" name="Medium"/>
 	<feature automatic="unselected" name="High"/>
-	<feature name="UserBehavior"/>
-	<feature name="UserLocation"/>
+	<feature name="UserBehaviorSequence"/>
+	<feature automatic="unselected" name="UserLocation"/>
 	<feature automatic="selected" name="UserProfile"/>
 	<feature automatic="selected" name="Age"/>
 	<feature manual="selected" name="Child"/>

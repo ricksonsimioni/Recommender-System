@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.trs:TourismRS xmlns:xmi="http://www.omg.org/XMI" xmlns:org.trs="https://org.trs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" data="CSV" xmi:version="2.0">
+  <algorithm xsi:type="org.trs:CollaborativeFiltering"/>
+</org.trs:TourismRS>

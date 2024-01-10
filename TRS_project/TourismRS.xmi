@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.trs:TourismRS
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:org.trs="https://org.trs"
+    xsi:schemaLocation="https://org.trs recommendersystem.ecore"
+    name="city"
+    data="JSON">
+  <algorithm
+      xsi:type="org.trs:CollaborativeFiltering"
+      neighbors="10"/>
+  <preprocessing>DUPLICATE_REMOVAL</preprocessing>
+  <item xsi:type="org.trs:POIList"
+      name="location"/>
+</org.trs:TourismRS>

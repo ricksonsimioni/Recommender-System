@@ -1,7 +1,9 @@
 import xml.etree.ElementTree as ET
 from pyecore.resources import ResourceSet, URI
-from pyecore.ecore import EPackage, EClass, EReference, EAttribute, EObject
+from pyecore.ecore import EPackage, EClass, EReference, EAttribute, EObject, EEnum, EOrderedSet, EEnumLiteral
 from jinja2 import Environment, FileSystemLoader
+
+
 
 def parse_feature_model(path):
     tree = ET.parse(path)
@@ -48,15 +50,19 @@ def parse_metamodel(path):
     e_packages = []
     e_classes = []
     e_references = []
+    e_enums = []
 
     def process_e_package(package):
         e_packages.append(package)
-        for eclass in package.eClassifiers:
-            if isinstance(eclass, EClass):
-                e_classes.append(eclass)
-                for eref in eclass.eStructuralFeatures:
+        for eclassifier in package.eClassifiers:
+            if isinstance(eclassifier, EClass):
+                e_classes.append(eclassifier)
+                for eref in eclassifier.eStructuralFeatures:
                     if isinstance(eref, EReference):
                         e_references.append(eref)
+            elif isinstance(eclassifier, EEnum):
+                e_enums.append(eclassifier)
+
 
     # Assuming the root of the metamodel is an EPackage
     if isinstance(metamodel, EPackage):
@@ -65,10 +71,16 @@ def parse_metamodel(path):
         for subpack in metamodel.eSubpackages:
             process_e_package(subpack)
 
-    return e_packages, e_classes, e_references
+    return e_packages, e_classes, e_references, e_enums
+
+def extract_enum_literals_from_eenum(eenum):
+    if not isinstance(eenum, EEnum):
+        raise ValueError("Provided object is not an EEnum")
+
+    return [literal.name for literal in eenum.eLiterals]
 
 
-def mapping_ft_to_mm(root_ft,classes):
+def mapping_ft_to_mm(root_ft,classes,enums):
     list_feature = parse_feature_model(root_ft)
 
     mapped_classes = []
@@ -76,55 +88,15 @@ def mapping_ft_to_mm(root_ft,classes):
         if c.name in list_feature:
             print('mapped', c)
             mapped_classes.append(c.name)
+    for e in enums:
+        literals = extract_enum_literals_from_eenum(e)
+        for lit in literals:
+            if lit in list_feature:
+                print('mapped', lit)
+                mapped_classes.append(lit)
 
     return mapped_classes
 
-def generate_model(ft, mm_path):
-    rset = ResourceSet()
-
-    # Load the metamodel
-    mm_resource = rset.get_resource(URI(mm_path))
-    metamodel = mm_resource.contents[0]
-    if isinstance(metamodel, EPackage):
-        rset.metamodel_registry[metamodel.nsURI] = metamodel
-    else:
-        raise ValueError("The metamodel at the specified path is not an EPackage")
-
-    # Create a new model resource
-    model_gen = rset.create_resource(URI('out_model.xmi'))
-
-    # Populate the new model based on the transformation logic
-
-    e_packages = []
-    e_classes = []
-    e_references = []
-
-    def process_e_package(package):
-        e_packages.append(package)
-        for eclass in package.eClassifiers:
-            if isinstance(eclass, EClass):
-                e_classes.append(eclass)
-                for eref in eclass.eStructuralFeatures:
-                    if isinstance(eref, EReference):
-                        e_references.append(eref)
-
-    # Assuming the root of the metamodel is an EPackage
-    if isinstance(metamodel, EPackage):
-        process_e_package(metamodel)
-        # If the metamodel contains subpackages, process them as well
-        for subpack in metamodel.eSubpackages:
-            process_e_package(subpack)
-    #mapped_classes = mapping_ft_to_mm(ft, metamodel)
-    for eclass in e_classes:
-        # Create an instance of each EClass
-        instance = eclass()
-        # Add the instance to the resource
-        model_gen.append(instance)
-
-    # Save the transformed model
-    model_gen.save()
-
-    return model_gen
 
 
 def instantiate_tourism_rs_model(root_ft, mm_path):
@@ -142,15 +114,18 @@ def instantiate_tourism_rs_model(root_ft, mm_path):
     e_packages = []
     e_classes = []
     e_references = []
+    e_enums = []
 
     def process_e_package(package):
         e_packages.append(package)
-        for eclass in package.eClassifiers:
-            if isinstance(eclass, EClass):
-                e_classes.append(eclass)
-                for eref in eclass.eStructuralFeatures:
+        for eclassifier in package.eClassifiers:
+            if isinstance(eclassifier, EClass):
+                e_classes.append(eclassifier)
+                for eref in eclassifier.eStructuralFeatures:
                     if isinstance(eref, EReference):
                         e_references.append(eref)
+            elif isinstance(eclassifier, EEnum):
+                e_enums.append(eclassifier)
 
     # Assuming the root of the metamodel is an EPackage
     if isinstance(metamodel, EPackage):
@@ -171,7 +146,7 @@ def instantiate_tourism_rs_model(root_ft, mm_path):
 
     tourism_rs_instance = tourism_rs_class()
 
-    mapped_classes = mapping_ft_to_mm(root_ft, e_classes)
+    mapped_classes = mapping_ft_to_mm(root_ft, e_classes, e_enums)
     print(mapped_classes)
 
     # Instantiate the algorithm metaclass (CollaborativeFiltering)
@@ -182,6 +157,9 @@ def instantiate_tourism_rs_model(root_ft, mm_path):
 
         algorithm_instance = algorithm_class()
         tourism_rs_instance.algorithm = algorithm_instance
+
+
+    tourism_rs_instance.data = 'CSV'
 
     # Add the root instance to the resource
     model_resource.append(tourism_rs_instance)
@@ -268,8 +246,8 @@ def open_xmi_and_initialize_template(xmi_path, template_path, template_name, met
 
 if __name__ == '__main__':
     #parse_feature_model('trsFM/configs/configTRS.xml')
-    #instantiate_tourism_rs_model('trsFM/configs/configTRS.xml','TRS_project/recommendersystem.ecore')
-    #add_schema_location_to_xmi('TRS_project/tourism_rs_model.xmi', ' xsi:schemaLocation="https://org.rs recommendersystem.ecore"', 'TRS_project/model.xmi')
+    instantiate_tourism_rs_model('trsFM/configs/configTRS.xml','TRS_project/recommendersystem.ecore')
+    add_schema_location_to_xmi('TRS_project/tourism_rs_model.xmi', ' xsi:schemaLocation="https://org.trs recommendersystem.ecore"', 'TRS_project/model.xmi')
     #generate_model('trsFM/configs/configTRS.xml', 'TRS_project/recommendersystem.ecore' )
     #attributes = parse_attributes('TRS_project/recommendersystem.ecore')
     xmi_path = 'TRS_project/tourism_rs_model.xmi'

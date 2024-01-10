@@ -33,9 +33,9 @@
 				<or mandatory="true" name="DataPreprocessing">
 					<graphics key="collapsed" value="false"/>
 					<feature name="NLP"/>
-					<feature name="Vectorization"/>
-					<feature name="DuplicatesRemoval"/>
-					<feature name="MissingDataManipulation"/>
+					<feature name="VECTORIZATION"/>
+					<feature name="DUPLICATE_REMOVAL"/>
+					<feature name="MISSING_DATA_REMOVAL"/>
 				</or>
 				<alt mandatory="true" name="DataEncoding">
 					<feature name="CSV"/>

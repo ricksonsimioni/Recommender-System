@@ -27,12 +27,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="RecommendationItem" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="POI" eSuperTypes="#//RecommendationItem"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Itinerary" eSuperTypes="#//RecommendationItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="POIList" eSuperTypes="#//RecommendationItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rating" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Itinerary" eSuperTypes="#//RecommendationItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataPreprocessingType">
     <eLiterals name="DUPLICATE_REMOVAL"/>
     <eLiterals name="VECTORIZATION" value="1"/>
     <eLiterals name="NLP" value="2"/>
+    <eLiterals name="MISSING_DATA_REMOVAL" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataEncoding">
     <eLiterals name="CSV"/>
